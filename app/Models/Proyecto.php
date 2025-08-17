@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proyecto extends Model
 {
-    protected $fillable = ['nombre', 'fecha_inicio', 'estado', 'responsable', 'monto'];
+    protected $fillable = [
+        'nombre',
+        'fecha_inicio',
+        'estado',
+        'responsable',
+        'monto',
+        'created_by'  // ID del usuario que creó el proyecto
+    ];
 }
