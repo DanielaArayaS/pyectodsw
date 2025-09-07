@@ -11,7 +11,7 @@ class ProyectoController extends Controller
     // Listar todos los proyectos
     public function index() {
         $proyectos = Proyecto::all();
-        return response()->json($proyectos);
+        return response()->json($proyectos, 200);
     }
 
     // Obtener un proyecto por ID
@@ -20,7 +20,7 @@ class ProyectoController extends Controller
         if (!$proyecto) {
             return response()->json(['mensaje' => 'Proyecto no encontrado'], 404);
         }
-        return response()->json($proyecto);
+        return response()->json($proyecto, 200);
     }
 
     // Crear un nuevo proyecto
@@ -58,7 +58,7 @@ class ProyectoController extends Controller
         return response()->json([
             'mensaje' => 'Proyecto actualizado correctamente',
             'proyecto' => $proyecto
-        ]);
+        ], 200);
     }
 
     // Eliminar un proyecto
@@ -70,6 +70,6 @@ class ProyectoController extends Controller
 
         $proyecto->delete();
 
-        return response()->json(['mensaje' => 'Proyecto eliminado correctamente']);
+        return response()->json(null, 204);
     }
 }
